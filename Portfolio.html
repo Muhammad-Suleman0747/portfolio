@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Portfolio</title>
+    <meta name="description" content="Simple personal portfolio" />
+    <style>
+        :root{
+            --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#4f46e5; --glass:rgba(255,255,255,0.03);
+            --radius:12px; --max-w:1100px;
+            color-scheme: dark;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background:linear-gradient(180deg,#071027 0%, #0b1530 100%);
+            color:#e6eef8;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            padding:40px 20px;
+        }
+        .container{
+            width:100%;
+            max-width:var(--max-w);
+            backdrop-filter: blur(6px);
+        }
+
+        header{
+            display:flex;
+            gap:16px;
+            align-items:center;
+            justify-content:space-between;
+            margin-bottom:26px;
+        }
+        .brand{
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+        .logo{
+            width:48px;height:48px;border-radius:10px;
+            background:linear-gradient(135deg,var(--accent),#06b6d4);
+            display:grid;place-items:center;font-weight:700;color:white;
+            box-shadow:0 6px 18px rgba(79,70,229,0.18);
+        }
+        nav a{
+            color:var(--muted);
+            text-decoration:none;
+            margin-left:16px;
+            font-size:0.95rem;
+        }
+        nav a:hover{color:#fff}
+
+        main{
+            display:grid;
+            grid-template-columns:1fr 360px;
+            gap:20px;
+            align-items:start;
+        }
+        @media (max-width:880px){
+            main{grid-template-columns:1fr; padding-bottom:30px}
+            header{flex-direction:column;align-items:flex-start;gap:12px}
+        }
+
+        /* Left column */
+        .card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:var(--radius);
+            padding:20px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+        }
+        .hero{
+            display:flex;
+            gap:18px;
+            align-items:center;
+        }
+        .avatar{
+            width:96px;height:96px;border-radius:14px;background:var(--glass);
+            display:grid;place-items:center;font-size:28px;color:var(--accent);font-weight:700;
+            flex-shrink:0;
+            border:1px solid rgba(255,255,255,0.04);
+        }
+        .hero h1{margin:0;font-size:1.45rem;}
+        .hero p{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+
+        .section{margin-top:18px}
+        .section h3{margin:0 0 12px 0;font-size:1.05rem}
+        .about p{color:var(--muted);line-height:1.6;margin:0}
+
+        /* Projects */
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:12px;
+        }
+        .project{
+            background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+            padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+        }
+        .project h4{margin:0 0 6px 0;font-size:0.98rem}
+        .project p{margin:0;color:var(--muted);font-size:0.9rem}
+        .project .meta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+        .tag{font-size:0.8rem;color:var(--muted);background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px}
+
+        /* Right column */
+        aside.sticky{
+            position:sticky; top:40px;
+            display:flex;flex-direction:column;gap:12px;
+        }
+        .skills{display:flex;flex-wrap:wrap;gap:8px}
+        .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:0.9rem}
+
+        .contact form{display:flex;flex-direction:column;gap:8px}
+        input,textarea{
+            background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:8px;color:inherit;
+            font:inherit;outline:none;
+        }
+        textarea{min-height:90px;resize:vertical}
+        button{
+            background:linear-gradient(90deg,var(--accent),#06b6d4);border:0;padding:10px 12px;border-radius:8px;color:white;font-weight:600;cursor:pointer;
+        }
+        button:active{transform:translateY(1px)}
+        footer{margin-top:24px;text-align:center;color:var(--muted);font-size:0.9rem}
+        .links{display:flex;gap:8px;flex-wrap:wrap}
+        .links a{color:var(--muted);text-decoration:none;font-size:0.95rem}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">SNS</div>
+                <div>
+                    <div style="font-weight:700">Your Name</div>
+                    <div style="font-size:0.9rem;color:var(--muted)">Web developer • Designer</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <div class="card hero">
+                    <div class="avatar">SNS</div>
+                    <div>
+                        <h1>Hi, I'm Suleman Naeem</h1>
+                        <p>I am a Computer Science student.</p>
+                    </div>
+                </div>
+
+                <div class="card section about" id="about" aria-labelledby="about-heading">
+                    <h3 id="about-heading">About</h3>
+                    <p>
+                         I am currently studying at FAST NUCES. I have a passion for web development and design, constantly seeking to improve my skills and stay updated with the latest industry trends. In my free time, I enjoy working on personal projects that challenge my creativity and technical abilities.
+                    </p>
+                </div>
+
+                <div class="card section" id="projects" aria-labelledby="projects-heading">
+                    <h3 id="projects-heading">My Introduction</h3>
+                    <div class="projects-grid">
+                        <article class="project">
+                            <h4>Project Alpha</h4>
+                            <p>This website is my portfolio nad it is my project alpha.</p>
+                        </article>
+
+                        <article class="project">
+                            <h4>My Goals</h4>
+                            <p>I see myself as a good programmer in the next 4 years. I will probably consider AI or Cyber Security as my major.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sticky">
+                <div class="card">
+                    <h3>Skills</h3>
+                    <div class="skills" aria-hidden="false">
+                        <span class="skill">HTML</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">C Language</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">Accessibility</span>
+                        <span class="skill">Design</span>
+                    </div>
+                </div>
+
+                <div class="card contact" id="contact" aria-labelledby="contact-heading">
+                    <h3 id="contact-heading">Contact</h3>
+                    <form id="contactForm">
+                        <input id="name" name="name" placeholder="Your name" required />
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                        <textarea id="message" name="message" placeholder="Short message" required></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                    <div style="margin-top:10px;color:var(--muted);font-size:0.9rem">
+                        Or email: <a id="emailLink" href="mailto:you@example.com" style="color:var(--accent);text-decoration:none">you@example.com</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Links</h3>
+                    <div class="links">
+                        <a href="#" target="_blank" rel="noopener">GitHub</a>
+                        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="#" target="_blank" rel="noopener">Resume</a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            Built with HTML & CSS • © <span id="year"></span> Muhammad Suleman Naeem
+        </footer>
+    </div>
+
+    <script>
+        // Small client-side behavior: handle the contact form locally and show a friendly message.
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {
+                alert('Please complete all fields.');
+                return;
+            }
+            // Replace this with a real submission endpoint or mailto link as needed.
+            alert('Thanks, ' + name + '! Your message was received.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html></div>
